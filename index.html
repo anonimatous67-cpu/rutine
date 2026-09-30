@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi rutina de gym</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='extra.css') }}">
+</head>
+<body>
+<header class="top">
+  <h1>Arma tu rutina</h1>
+  <p>Con las máquinas que hay en tu gimnasio.</p>
+</header>
+
+<main>
+  <section class="panel" id="config">
+    <label>Objetivo
+      <select id="goal"><option value="hipertrofia">Ganar músculo</option><option value="fuerza">Ganar fuerza</option><option value="definicion">Definir</option></select>
+    </label>
+    <label>Nivel
+      <select id="level"><option value="principiante">Principiante</option><option value="intermedio">Intermedio</option><option value="avanzado">Avanzado</option></select>
+    </label>
+    <label>Días por semana
+      <select id="days"><option>3</option><option>4</option><option>5</option></select>
+    </label>
+    <label>Tu peso (kg)
+      <input id="bw" type="number" min="30" max="250" step="0.5" placeholder="Ej: 70" inputmode="decimal">
+    </label>
+    <button id="gen" class="btn">Generar rutina</button>
+    <p class="nota">Con tu peso calculo una carga inicial aproximada para cada ejercicio. Ajústala a tu fuerza real.</p>
+  </section>
+
+  <nav id="tabs" class="tabs" hidden></nav>
+  <section id="routine"></section>
+  <div id="savebar" class="savebar" hidden><button id="save" class="btn">Guardar entrenamiento de hoy</button></div>
+
+  <section class="panel">
+    <h2>Máquinas del gimnasio</h2>
+    <div id="machines" class="grid"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Historial</h2>
+    <p id="empty" class="muted">Aún no guardaste ningún entrenamiento. Completa una rutina y pulsa “Guardar entrenamiento de hoy”.</p>
+    <div class="tablewrap"><table id="hist" hidden><thead><tr><th>Fecha</th><th>Día</th><th>Máquina</th><th>Series</th><th>Peso (kg)</th></tr></thead><tbody></tbody></table></div>
+  </section>
+</main>
+
+<div id="timer" class="timer" hidden><span id="tval">0</span><button id="tstop" aria-label="Cerrar temporizador">×</button></div>
+<dialog id="vdlg" class="vdlg">
+  <h3 id="vtitle"></h3>
+  <div id="vframe" class="vframe"></div>
+  <p id="vtip" class="tip"></p>
+  <div class="vbtns">
+    <a id="vlink" class="btn" target="_blank" rel="noopener">Buscar video en YouTube</a>
+    <button id="vclose" class="btn gris" type="button">Cerrar</button>
+  </div>
+</dialog>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+<script src="{{ url_for('static', filename='extra.js') }}"></script>
+</body>
+</html>

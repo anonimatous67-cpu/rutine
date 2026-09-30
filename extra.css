@@ -1,0 +1,10 @@
+.nota{grid-column:1/-1;margin:0;color:var(--acero);font-size:.85rem}
+.ver{background:var(--pin);color:var(--asfalto);border:0;border-radius:6px;padding:.35rem .8rem;cursor:pointer;font:800 1rem "Barlow Condensed",sans-serif}
+.vdlg{background:var(--panel);color:var(--tiza);border:0;border-radius:10px;padding:1.25rem;width:min(92vw,640px)}
+.vdlg::backdrop{background:rgba(0,0,0,.75)}
+.vframe{margin:.75rem 0}
+.vframe iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:8px}
+.vframe img{width:100%;max-height:320px;object-fit:cover;border-radius:8px}
+.vbtns{display:flex;gap:.5rem;flex-wrap:wrap}
+.vbtns a.btn{text-decoration:none;display:inline-block}
+.btn.gris{background:#39424f}
