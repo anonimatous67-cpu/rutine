@@ -6,7 +6,8 @@ import sqlite3
 from datetime import datetime
 from flask import Flask, jsonify, request, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.', static_folder='.')
+
 DB = os.path.join(os.path.dirname(os.path.abspath(__file__)), "gym.db")
 
 # Nombres según las fotos (algunas están borrosas: corrígelos aquí si hace falta)
